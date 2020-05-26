@@ -1,6 +1,7 @@
 from db import db
 
 
+
 class MarketModel(db.Model):
     __tablename__ = 'market'
 

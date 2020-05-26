@@ -15,17 +15,27 @@ _parser.add_argument('password',
                      required=True,
                      help="Password field cannot be left blank!!"
     )
+_parser.add_argument('email',
+                     type=str,
+                     required=False,
+                     store_missing=True,
+                     help="Email field cannot be left blank"
+
+    )
 
 class UserRegister(Resource):
-
     def post(self):
         data = _parser.parse_args()
 
         if UserModel.find_by_username(data['username']):
-            return {"message":"This username is allready taken"}, 400
-
-        user = UserModel(data['username'],data['password'])
-        user.save_to_db()
+            return {"message":"{} : username is allready taken".format(data['username'])}, 400
+        elif data['email'] is None:
+            return {"message":"YOU must add Email!"}, 400
+        try:
+            user = UserModel(**data)
+            user.save_to_db()
+        except:
+            return {"message":"UUps something went wrong"}, 500
 
         return {"message":"User created successfully"}, 201
 

@@ -42,6 +42,9 @@ if __name__=="__main__":
 
     @app.before_first_request
     def create_tables():
-        db.create_all()
-
+        try:
+            db.create_all()
+        except:
+            print("UUPS Something went seriously wrong")
+    
     app.run(debug=True)

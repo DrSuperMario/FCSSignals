@@ -1,4 +1,6 @@
 from db import db
+from datetime import datetime as dt
+
 
 
 
@@ -10,18 +12,21 @@ class SignalModel(db.Model):
     signal_name = db.Column(db.String(10))
     opinion = db.Column(db.String(7))
     change = db.Column(db.String(7))
-    
+
     market_id = db.Column(db.Integer, db.ForeignKey('market.id'))
+    date = db.Column(db.String(15),onupdate=dt.now())
     market = db.relationship('MarketModel')
 
-    def __init__(self,signal_name, opinion, change, market_id):
+
+    def __init__(self,signal_name, opinion, change, market_id, date):
         self.signal_name = signal_name
         self.opinion = opinion
         self.change = change
         self.market_id = market_id
+        self.date = date
 
     def json(self):
-        return {'signal_name': self.signal_name,'opinion': self.opinion,'change': self.change}
+        return {'signal_name': self.signal_name,'opinion': self.opinion,'change': self.change,'date':self.date}
 
     @classmethod
     def find_market_by_id(cls, market_id):

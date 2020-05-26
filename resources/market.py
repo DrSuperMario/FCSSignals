@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from flask_jwt_extended import jwt_required
 from models.market import MarketModel
 
 
@@ -11,6 +12,7 @@ class Market(Resource):
             return market.json()
         return {"message":"Marketplace not found"}, 404
 
+    @jwt_required
     def post(self,name):
         if MarketModel.find_market(name):
             return {"message":"Marketplace {} already exists".format(name)}
@@ -22,12 +24,16 @@ class Market(Resource):
 
         return market.json(), 201
 
+    @jwt_required
     def delete(self,name):
         market = MarketModel.find_market(name)
-        if market:
-            market.delete_from_db()
+        try:
+            if market:
+                market.delete_from_db()
 
-        return {"message":"Market deleted"}
+            return {"message":"Market deleted"}
+        except:
+            return {"message":"UUPS Somethng went wrong!"}, 500
 
 class MarketList(Resource):
     

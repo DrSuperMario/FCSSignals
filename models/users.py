@@ -9,16 +9,19 @@ class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80))
     password = db.Column(db.String(80))
+    email = db.Column(db.String(80))
 
 
-    def __init__(self,username, password):
+    def __init__(self,username, password, email):
         self.username = username
         self.password = password
+        self.email = email
 
     def json(self):
         return {
             'id':self.id,
-            'username':self.username
+            'username':self.username,
+            'email':self.email
         }
 
     def save_to_db(self):
@@ -37,5 +40,9 @@ class UserModel(db.Model):
     @classmethod
     def find_by_id(cls,_id):
         return cls.query.filter_by(id=_id).first()
+
+    @classmethod
+    def find_by_email(cls,email):
+        return cls.query.filter_by(email=email).first()
 
     
