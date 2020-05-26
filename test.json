@@ -1,0 +1,73 @@
+{
+    "markets": [
+        {
+            "Name": "Crypto",
+            "Signals": [
+                {
+                    "signal_name": "IBM",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 15:16:33.395384"
+                },
+                {
+                    "signal_name": "SSS",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 20:17:00.769123"
+                },
+                {
+                    "signal_name": "POLL",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 20:17:07.339515"
+                },
+                {
+                    "signal_name": "SOLL",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 20:17:12.754412"
+                }
+            ]
+        },
+        {
+            "Name": "Stock",
+            "Signals": [
+                {
+                    "signal_name": "AAPL",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 15:16:43.434703"
+                },
+                {
+                    "signal_name": "FFF",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 20:17:22.871995"
+                },
+                {
+                    "signal_name": "ZZA",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 20:17:28.581030"
+                }
+            ]
+        },
+        {
+            "Name": "Forex",
+            "Signals": [
+                {
+                    "signal_name": "FORD",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 15:16:24.048592"
+                },
+                {
+                    "signal_name": "OPS",
+                    "opinion": "1.99%",
+                    "change": "3.5",
+                    "date": "2020-05-26 20:17:38.644036"
+                }
+            ]
+        }
+    ]
+}
