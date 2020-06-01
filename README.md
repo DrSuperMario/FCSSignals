@@ -1,2 +1,3 @@
 # FCSSignals
- Forex, Crypto, Stock Signals . REST API
+## Simple REST API for sharing Stock Crypto and Forex Signals
+
