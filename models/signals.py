@@ -26,7 +26,7 @@ class SignalModel(db.Model):
         self.date = date
 
     def json(self):
-        return {'signal_name': self.signal_name,'opinion': self.opinion,'change': self.change,'date':self.date}
+        return {'signal_name': self.signal_name,'opinion': self.opinion,'change': self.change,'date':self.date,'market_id':self.market_id}
 
     @classmethod
     def find_market_by_id(cls, market_id):
