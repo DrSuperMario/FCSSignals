@@ -47,4 +47,4 @@ if __name__=="__main__":
         except:
             print("UUPS Something went seriously wrong")
     
-    app.run(debug=True)
+    app.run(port=5000)
