@@ -3,8 +3,6 @@ from datetime import datetime as dt
 
 
 
-
-
 class SignalModel(db.Model):
     __tablename__ = 'signals'
     
@@ -14,7 +12,7 @@ class SignalModel(db.Model):
     change = db.Column(db.String(7))
 
     market_id = db.Column(db.Integer, db.ForeignKey('market.id'))
-    date = db.Column(db.String(15),onupdate=dt.now())
+    date = db.Column(db.String(15),onupdate=dt.strftime(dt.now(), "%d-%m-%Y %H:%M"))
     market = db.relationship('MarketModel')
 
 
